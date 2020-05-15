@@ -143,8 +143,8 @@ class SCNN:
 
 def calculateMove(gameState):
     print(gameState)
-    a = [i for i in range(len(gameState["CityCoords"]))]  # Produces a list of all the city indexes
-    np.random.shuffle(a)  # Randomly orders the list of cities
+    cityIndexes = [i for i in range(len(gameState["CityCoords"]))]  # Produces a list of all the city indexes
+    np.random.shuffle(cityIndexes)  # Randomly orders the list of cities
     S = SCNN(gameState['CityCoords'])
     S.iterate_result()
     r = S.route()
@@ -152,6 +152,6 @@ def calculateMove(gameState):
     move = {'Path': r}  # Sets move to be the random order of cities
     print(S.route_lenth())
     print(move)
-    print(a)
+    print(cityIndexes)
     return move
     
